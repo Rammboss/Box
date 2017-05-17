@@ -31,7 +31,7 @@ class Controller(object):
             print "Led" , self.LED.state
             print "Lueftung" , self.BELUEFTUNG.state
             print "Heater" , self.HEATER.state
-            print 'Temp: ' + str(t[0]) + '\nFeuchtigkeit: ' + str(h[1]) 
+            print 'Temp: ' + str(t[0]) + '\nFeuchtigkeit: ' + str(t[1]) 
             print "######################################"
             time.sleep(15)
 
