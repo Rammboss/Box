@@ -12,24 +12,29 @@ class Controller(object):
     '''
     classdocs
     '''
-    def __init__(self, led, belueftung, heater):
+    def __init__(self, led, belueftung, heater, temp):
         '''
         Constructor
         '''
         self.LED = led
         self.BELUEFTUNG = belueftung
         self.HEATER = heater
+        self.TEMP = temp
     def start(self):
         while True:
-            print "#####", datetime.now(), "#####"
-            print "Led" , self.LED.state
-            print "Lueftung" , self.BELUEFTUNG.state
-            print "Heater" , self.HEATER.state
-            print "######################################"
             self.LED.update()
             if self.BELUEFTUNG.update() == True:
                 self.HEATER.setStartTime(datetime.now())
             self.HEATER.update()
-            time.sleep(10)
+            t,h = self.TEMP.update()
+            print "#####", datetime.now(), "#####"
+            print "Led" , self.LED.state
+            print "Lueftung" , self.BELUEFTUNG.state
+            print "Heater" , self.HEATER.state
+            print 'Temp: ' + str(t + '\nFeuchtigkeit: ' + str(h)) 
+            print "######################################"
+            time.sleep(15)
+
+            
             
             

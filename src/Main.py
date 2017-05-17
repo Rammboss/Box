@@ -22,6 +22,7 @@ from datetime import datetime, time
 from Controller import Controller
 from Belueftung import Belueftung
 from Heater import Heater
+from SensorTemp import SensorTemp
 
 lichtData = {
      time(06,00) : time(23,59)
@@ -31,7 +32,8 @@ led = LED("LED Saga", lichtData)
 belueftung = Belueftung("Luefter", '00:30:00', '03:00:00')
 heater = Heater("Handy Heater", belueftung)
 belueftung.setHeater(heater)
-controller = Controller(led, belueftung, heater)
+temp = SensorTemp(274151, '3AU6RMVSYJ0UXQHY','VBO2U7I3LHBZNX05' )
+controller = Controller(led, belueftung, heater, temp)
 controller.BELUEFTUNG.turnOff()
 controller.HEATER.turnOff()
 controller.LED.turnOff()
