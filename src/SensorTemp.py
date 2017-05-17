@@ -11,8 +11,6 @@ class SensorTemp(object):
     '''
     classdocs
     '''
-
-
     def __init__(self, channelID, writeKey, readKey):
         '''
         Constructor
@@ -27,13 +25,12 @@ class SensorTemp(object):
             humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
             # write
             response = channel.update({'field1': temperature, 'field2': humidity})
-            
+            print temperature
+            print humidity
             return [temperature, humidity]
-            
-            #print 'Temp: ' + str(temperature + '\nFeuchtigkeit: ' + str(humidity)) 
         except:
             print("connection failed")
-            return [0,0]
+            return [-1,-1]
             
     def update(self):
         return self.measure(self.channel)

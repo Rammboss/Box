@@ -34,9 +34,9 @@ heater = Heater("Handy Heater", belueftung)
 belueftung.setHeater(heater)
 temp = SensorTemp(274151, '3AU6RMVSYJ0UXQHY','VBO2U7I3LHBZNX05' )
 controller = Controller(led, belueftung, heater, temp)
-controller.BELUEFTUNG.turnOff()
-controller.HEATER.turnOff()
-controller.LED.turnOff()
+#controller.BELUEFTUNG.turnOff()
+#controller.HEATER.turnOff()
+#controller.LED.turnOff()
 controller.start()
 
 
