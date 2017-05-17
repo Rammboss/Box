@@ -1,1 +1,8 @@
-.pyc
+*.pyc
+
+.pydevproject
+.project
+.classpath
+/bin/
+
+/.settings
