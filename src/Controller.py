@@ -26,12 +26,12 @@ class Controller(object):
             if self.BELUEFTUNG.update() == True:
                 self.HEATER.setStartTime(datetime.now())
             self.HEATER.update()
-            t,h = self.TEMP.update()
+            t = self.TEMP.update()
             print "#####", datetime.now(), "#####"
             print "Led" , self.LED.state
             print "Lueftung" , self.BELUEFTUNG.state
             print "Heater" , self.HEATER.state
-            print 'Temp: ' + str(t + '\nFeuchtigkeit: ' + str(h)) 
+            print 'Temp: ' + str(t[0] + '\nFeuchtigkeit: ' + str(h[1])) 
             print "######################################"
             time.sleep(15)
 

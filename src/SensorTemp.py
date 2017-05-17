@@ -28,7 +28,7 @@ class SensorTemp(object):
             # write
             response = channel.update({'field1': temperature, 'field2': humidity})
             
-            return temperature, humidity
+            return [temperature, humidity]
             
             #print 'Temp: ' + str(temperature + '\nFeuchtigkeit: ' + str(humidity)) 
         except:
