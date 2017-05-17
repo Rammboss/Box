@@ -33,6 +33,7 @@ class Controller(object):
             print "Heater" , self.HEATER.state
             print 'Temp: ' + str(t[0]) + '\nFeuchtigkeit: ' + str(t[1]) 
             print "######################################"
+            t = [-1,-1]
             time.sleep(15)
 
             
