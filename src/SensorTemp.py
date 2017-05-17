@@ -36,4 +36,4 @@ class SensorTemp(object):
             return [0,0]
             
     def update(self):
-        self.measure(self.channel)
+        return self.measure(self.channel)
