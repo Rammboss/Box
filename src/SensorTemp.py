@@ -33,7 +33,7 @@ class SensorTemp(object):
             #print 'Temp: ' + str(temperature + '\nFeuchtigkeit: ' + str(humidity)) 
         except:
             print("connection failed")
-            return None
+            return [0,0]
             
     def update(self):
         self.measure(self.channel)
