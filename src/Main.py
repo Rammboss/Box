@@ -3,7 +3,7 @@
 '''
 Main -- shortdesc
 
-Main is a description
+Main is a description wurst
 
 It defines classes_and_methods
 
