@@ -22,7 +22,7 @@ class SensorTemp(object):
         self.readKey = readKey
         self.sensor = Adafruit_DHT.DHT22
         self.channel = thingspeak.Channel(id=channelID,write_key=writeKey,api_key=readKey)
-    def measure(channel):
+    def measure(self, channel):
         try:
             humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
             # write
