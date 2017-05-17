@@ -19,14 +19,13 @@ class SensorTemp(object):
         self.writeKey = writeKey
         self.readKey = readKey
         self.sensor = Adafruit_DHT.DHT22
+        self.pin = 27
         self.channel = thingspeak.Channel(id=channelID,write_key=writeKey,api_key=readKey)
     def measure(self, channel):
         try:
-            humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+            humidity, temperature = Adafruit_DHT.read_retry(self.sensor, self.pin)
             # write
             response = channel.update({'field1': temperature, 'field2': humidity})
-            print temperature
-            print humidity
             return [temperature, humidity]
         except:
             print("connection failed")
