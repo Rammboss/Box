@@ -14,13 +14,14 @@ class Heater(Socket):
     codeOff = 5506388
     state = "OFF"
 
-    def __init__(self, name, belueftung):
+    def __init__(self, name, belueftung, temp):
         '''
         Constructor
         '''
         self.name = name
         self.belueftung = belueftung
         self.startTime = "N.A"
+        self.sensorTemp = temp
     def checkTime(self):
         currentTime = datetime.time(datetime.now())
         tmp = False
@@ -41,16 +42,19 @@ class Heater(Socket):
         return Socket.turnOff(self, self.codeOff, 'Heizung aus')
     def setStartTime(self, startTime):
         self.startTime = startTime
-        
-    def update(self):
-        #print datetime.time(datetime.now())
-        #print datetime   
+    def isBetween(self, start, end):
+        currentTemp = self.sensorTemp.getLastTemp()
+        if(start <= currentTemp <=end):
+            return True
+        else:
+            return False
+    def update(self): 
         current =  datetime.now()
            
-        if self.state == "OFF" and self.startTime != "N.A" and self.belueftung.state == "OFF":
+        if self.state == "OFF" and self.startTime != "N.A" and self.belueftung.state == "OFF" or not(self.isBetween(22, 28)):
             self.turnOn()
             
-        elif isinstance(self.startTime, datetime) and current > datetime.combine(current.today(), Socket.addtoTime(self, self.startTime.strftime("%H:%M:%S"), "00:10:00").time()):
+        elif isinstance(self.startTime, datetime) and current > datetime.combine(current.today(), Socket.addtoTime(self, self.startTime.strftime("%H:%M:%S"), "00:10:00").time()) or self.isBetween(22, 28):
                 self.turnOff()
                 self.startTime = "N.A"
         else:
