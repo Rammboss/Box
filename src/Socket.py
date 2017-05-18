@@ -19,12 +19,12 @@ class Socket(object):
     
     def turnOn(self, codeOn, text):
         print text
-        for i in range(10):
+        for i in range(4):
             os.system("sudo /home/pi/myProject/433Utils/RPi_utils/codesend " + str(codeOn))
         return True
     def turnOff(self, codeOff, text):
         print text
-        for i in range(10):
+        for i in range(4):
             os.system("sudo /home/pi/myProject/433Utils/RPi_utils/codesend " + str(codeOff))
         return True
     def addtoTime(self, currentAsString, period):
