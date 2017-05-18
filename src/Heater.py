@@ -51,10 +51,10 @@ class Heater(Socket):
     def update(self): 
         current =  datetime.now()
            
-        if self.state == "OFF" and self.startTime != "N.A" and self.belueftung.state == "OFF" or not(self.isBetween(20, 28)) and self.state == "OFF" and self.belueftung.state == "OFF":
+        if self.state == "OFF" and self.startTime != "N.A" and self.belueftung.state == "OFF" or not(self.isBetween(20, 28)) and self.state == "OFF" and self.belueftung.state == "OFF" and self.sensorTemp.getLastTemp() != -1:
             self.turnOn()
             
-        elif isinstance(self.startTime, datetime) and current > datetime.combine(current.today(), Socket.addtoTime(self, self.startTime.strftime("%H:%M:%S"), "00:10:00").time()) or self.isBetween(25, 30) and self.state == "ON" and self.belueftung.state == "ON":
+        elif isinstance(self.startTime, datetime) and current > datetime.combine(current.today(), Socket.addtoTime(self, self.startTime.strftime("%H:%M:%S"), "00:10:00").time()) or self.isBetween(25, 30) and self.state == "ON" and self.belueftung.state == "ON" and self.sensorTemp.getLastTemp() == -1:
                 self.turnOff()
                 self.startTime = "N.A"
         else:
