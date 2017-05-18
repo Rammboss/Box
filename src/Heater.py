@@ -54,7 +54,7 @@ class Heater(Socket):
         if self.state == "OFF" and self.startTime != "N.A" and self.belueftung.state == "OFF" or not(self.isBetween(20, 28)) and self.state == "OFF" and self.belueftung.state == "OFF" and self.sensorTemp.getLastTemp() != -1:
             self.turnOn()
             
-        elif  self.isBetween(25, 32) or self.state == "ON" and self.belueftung.state == "ON" or self.sensorTemp.getLastTemp() != -1:
+        elif  self.isBetween(25, 32) and self.state == "ON" or self.state == "ON" and self.belueftung.state == "ON" or self.sensorTemp.getLastTemp() != -1:
                 #isinstance(self.startTime, datetime) and current > datetime.combine(current.today(), Socket.addtoTime(self, self.startTime.strftime("%H:%M:%S"), "00:10:00").time()) or
                 self.turnOff()
                 self.startTime = "N.A"
