@@ -32,8 +32,8 @@ lichtData = {
 #Create objects
 temp = SensorTemp(274151, '3AU6RMVSYJ0UXQHY','VBO2U7I3LHBZNX05' )
 led = LED("LED Saga", lichtData)
-belueftung = Belueftung("Luefter", '23:00:00', '01:00:00')
-#belueftung = Belueftung("Luefter", '00:05:00', '01:30:00')
+#belueftung = Belueftung("Luefter", '23:00:00', '01:00:00')
+belueftung = Belueftung("Luefter", '00:05:00', '01:30:00')
 heater = Heater("Handy Heater", belueftung, temp)
 belueftung.setHeater(heater)
 controller = Controller(led, belueftung, heater, temp)
