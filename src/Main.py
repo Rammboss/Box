@@ -26,7 +26,6 @@ from SensorTemp import SensorTemp
 
 lichtData = {
      time(07,00) : time(19,00)
-     
     }
 
 #Create objects
