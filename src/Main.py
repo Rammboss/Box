@@ -25,7 +25,7 @@ from Heater import Heater
 from SensorTemp import SensorTemp
 
 lichtData = {
-     time(07,00) : time(19,00)
+     time(05,30) : time(21,30)
     }
 
 #Create objects
