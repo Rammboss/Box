@@ -20,6 +20,7 @@ class Belueftung(Socket):
         '''
         self.name = name
         self.laufzeit = self.getTimeList(period, sleep) 
+        
     def checkTime(self):
         currentTime = datetime.time(datetime.now())
         tmp = False
